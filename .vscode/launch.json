@@ -8,11 +8,11 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
+            "name": "js-msa4",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Edu\\05_switch.js"
+            "program": "${file}"
         }
     ]
 }
