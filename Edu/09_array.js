@@ -154,3 +154,107 @@ console.log(arr,resultArr);
 // }
 // test(),
 // test(`dkdkdkdk`)
+
+
+
+//Array.sort(): T[] **원본 변경**
+// 배열의 요소를 문자열로 변환 후, 오름차순 정렬을 하고 정렬한 배열을 반환
+// (a -b)가 양수일경우, a가 큰수, b가 작은수로 인식하여정렬
+// (a -b)가 음수일경우, b가 큰수, a가 작은수로 인식하여정렬
+// (a -b)가 0일경우, 같은 값으로 인식하여 정렬하지 않음
+arr = [6, 4, 7, 1, 11];
+resultArr = arr.sort((a,b) => b - a) ; // 숫자비교는 콜백함수넣어서
+console.log(arr, resultArr);
+
+let num1 = 1;
+let num2 = 2;
+let temp = 0;
+temp = num1;
+num1 = num2;
+num2 = temp;
+console.log(num1, num2);
+
+// Array.map(callback): T[]
+// 배열의 모든 요소에 대해 콜백 함수를 반복 실행한 후, 새로운 배열을 반환
+// '콜백 함수의 리턴 값'들을 모아서 새로운 배열을 반환
+arr = [1,2,3,4,5,6];
+[1,2,`o`,4,5,`o`]
+//{}쓸때 리턴이 있어야함
+resultArr=arr.map(val=>{
+  if(val % 3 === 0){
+    return '짝';
+  }
+  else{
+    return val;
+  }
+});
+console.log(arr, resultArr);
+mult=arr.map(num => num*10);
+console.log(mult);
+
+class MyArr {
+  arr = [1,2,3,4,5,6];
+
+   map(cb){
+    //새로운 배열
+    const newArr=[];
+    
+    for(let i = 0; i < this.arr.length; i++){
+      let resultMap = cb(this.arr[i]);
+      newArr.push(resultMap);
+    }
+    return newArr;
+  }
+}
+const test = new MyArr();
+test.map(val=>{
+  if(val % 3 === 0){
+    return '짝';
+  }
+  else{
+    return val;
+  }});
+  console.log(`test:${resultArr}`);
+
+
+// Array.some(cb) : boolean 반환
+// 배열의 모든 요소에 대해 콜백함수를 실행 한 후, 조건에 맞는 결과가 하나라도 있으면 true, 없으면 false 반환
+arr = [
+  {name:`홍길동`,age:20},{name:`둘리`,age:50},{name:`또치`,age:40}
+];
+resultArr = arr.some(a => a.age >= 50);
+console.log(resultArr);
+
+// Array.every(cb) : boolean 반환
+// 배열의 모든 요소에 대해 콜백함수를 실행 한 후, 조건이 모두맞으면 true, 없으면 false 반환
+arr = [
+  {name:`홍길동`,age:20},{name:`둘리`,age:50},{name:`또치`,age:40}
+];
+resultArr=arr.every(item=>item.age >= 20);
+console.log(resultArr);
+
+//Array.filter(cb) : T[]
+// 배열의 모든 요소에 대해서 콜백함수를 실행 후, 조건에 만족한 요소만 모아서 새로운 배열로 반환
+arr = [
+  {name:`홍길동`,age:20},{name:`둘리`,age:50},{name:`또치`,age:40}
+];
+resultArr=arr.filter(item=>item.age<=40);
+console.log(resultArr);
+
+//Array.foreach(cb) : void 리턴없음
+// 배열이 모든 요소에 대해 콜백 함수를 반복 실행하고 싶을 때 사용
+arr = [
+  {name:`홍길동`,age:20,score:30},{name:`둘리`,age:50,score:50},{name:`또치`,age:40,score:80}
+];
+for(let i = 0; i <arr.length; i++){
+  //내가 하고 싶은 처리
+  //arr[i];
+}
+arr.forEach(({name, age, score}, idx)=>{
+  //내가 하고 싶은 처리
+  console.log(`${idx}번 유저의 이름은 ${name}입니다. 점수${score}`);
+}); // val : 요소, idx:인덱스번호
+console.table(arr);
+
+
+
