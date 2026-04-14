@@ -15,8 +15,6 @@ const btnevent = document.querySelector(`.event1`);
 btnevent.addEventListener(`mouseenter`, eventstart);
 btnevent.addEventListener(`click`, eventend);
 
-
-
 let gametimer = setInterval(tick, 1000);
   
 
@@ -34,7 +32,7 @@ const action = {
   },
 true: ()=>{
   alert(`숨는다`);
-  btnevent.style.backgroundColor = `transparent`;
+  btnevent.style = ``;
   btnevent.addEventListener(`mouseenter`, eventstart)
   clearInterval(gametimer);
   timer = 0; 
@@ -52,7 +50,7 @@ true: ()=>{
   
 
 function eventend(){
-  action[re]();
+  action[re]?.();
   re = !re;
 }
 
@@ -98,3 +96,6 @@ function tick(){
         bgimg.style.opacity = currentOpactiy;
     }
   }
+
+
+ 

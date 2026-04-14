@@ -6,7 +6,8 @@
 .event1{
   width: 100px;
   height: 100px;
-  position: absolute;
+   position: absolute;
+
 }
 #timer{
   position: fixed;
